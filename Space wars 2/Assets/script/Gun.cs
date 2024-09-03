@@ -7,12 +7,15 @@ public class Gun : MonoBehaviour
    public GameObject bulletPrefab; // The bullet prefab to instantiate
    public Transform firePoint;     // The point from where the bullet is fired
 
+   public AudioSource[] soundFX;
+
     void Update()
     {
         // Check if the spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space)) 
         {
                Shoot();
+               soundFX[0].Play();
         }
     }
 
