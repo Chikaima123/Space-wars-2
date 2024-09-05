@@ -6,6 +6,12 @@ public class Damage : MonoBehaviour
 {
    public int health = 1;
    public GameObject explosionPrefab;
+   public CameraShake cameraShake;
+
+   void Start()
+   {
+      cameraShake = Camera.main.GetComponent<CameraShake>();
+   }
 
    void OnTriggerEnter2D(Collider2D other)
    {
@@ -39,6 +45,10 @@ public class Damage : MonoBehaviour
    {
       Explode();
       Destroy(gameObject);
+      if (cameraShake != null)
+      {
+         cameraShake.Shake();
+      }
    }
 
    void Explode()
